@@ -36,7 +36,7 @@ const Homepage = () => {
       try {
         setLoading(true);
         const [combosRes, testimonialsRes] = await Promise.all([
-          fetch(`${API_BASE_URL}/api/products/popular`),
+          fetch(`${API_BASE_URL}/api/products`),
           fetch(`${API_BASE_URL}/api/testimonials`)
         ]);
 
@@ -45,6 +45,12 @@ const Homepage = () => {
           const combosData = await combosRes.json();
           if (combosData.ok) {
             const comboProducts = combosData.products
+              .filter((p: any) => p.category && p.category.toLowerCase() === 'combos')
+              .slice(0, 3);
+            setCombos(comboProducts);
+          } else {
+            // If combosData.ok is false, maybe the data is directly in the response
+            const comboProducts = combosData
               .filter((p: any) => p.category && p.category.toLowerCase() === 'combos')
               .slice(0, 3);
             setCombos(comboProducts);
@@ -122,7 +128,7 @@ const Homepage = () => {
                 <div key={combo.id} className="card group">
                   <div className="h-56 overflow-hidden relative">
                     <img 
-                      src={combo.image}
+                      src={`${API_BASE_URL}/uploads/${combo.image}`}
                       alt={combo.name}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
