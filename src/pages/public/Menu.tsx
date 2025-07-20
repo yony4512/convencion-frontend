@@ -134,7 +134,7 @@ const Menu = () => {
               {filteredProducts.map(product => (
                 <div key={product.id} className="card group overflow-hidden">
                   <div className="h-48 overflow-hidden relative">
-                    <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                    <img src={`${API_BASE_URL}/uploads/${product.image}`} alt={product.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                     {product.popular && (
                       <div className="absolute top-2 right-2 bg-primary-600 text-white text-sm font-bold px-3 py-1 rounded">Popular</div>
                     )}
