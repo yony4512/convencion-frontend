@@ -13,7 +13,7 @@ const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
     // Guardamos la página actual para poder volver después del login
     localStorage.setItem('loginRedirect', window.location.pathname);
     // Redirigimos al endpoint de autenticación de Google
-        window.location.href = `${API_BASE_URL}/auth/google?origin=public`;
+    window.location.href = `${API_BASE_URL}/api/auth/google?origin=public`;
   };
 
   return (

@@ -31,7 +31,7 @@ const Menu = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-                const res = await fetch(`${API_BASE_URL}/products/categories`);
+                const res = await fetch(`${API_BASE_URL}/api/products/categories`);
         const data = await res.json();
         if (data.ok) setCategories(data.categories);
       } catch (error) {
@@ -41,7 +41,7 @@ const Menu = () => {
 
     const fetchProducts = async () => {
       try {
-                const res = await fetch(`${API_BASE_URL}/products/public`);
+                const res = await fetch(`${API_BASE_URL}/api/products/public`);
         const data = await res.json();
         if (data.ok) setProducts(data.products);
       } catch (error) {

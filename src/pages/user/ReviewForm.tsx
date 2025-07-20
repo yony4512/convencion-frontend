@@ -21,12 +21,12 @@ export default function ReviewForm({ user }: { user: any }) {
     setLoading(true);
     setMsg('');
     try {
-            const res = await fetch(`${API_BASE_URL}/testimonials`, {
+            const response = await fetch(`${API_BASE_URL}/api/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, user_id: user?.id })
       });
-      const data = await res.json();
+      const data = await response.json();
       if (data.ok) {
         setMsg('¡Gracias por tu reseña!');
         setForm({ ...form, location: '', rating: 5, comment: '' });

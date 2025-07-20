@@ -36,8 +36,8 @@ const Homepage = () => {
       try {
         setLoading(true);
         const [combosRes, testimonialsRes] = await Promise.all([
-          fetch(`${API_BASE_URL}/products`),
-          fetch(`${API_BASE_URL}/testimonials`)
+          fetch(`${API_BASE_URL}/api/products/popular`),
+          fetch(`${API_BASE_URL}/api/testimonials`)
         ]);
 
         // Process combos
