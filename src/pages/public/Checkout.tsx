@@ -277,7 +277,7 @@ const Checkout = () => {
                           className="flex border-b border-gray-100 pb-6"
                         >
                           <img
-                            src={item.image ?? ""}
+                            src={`${API_BASE_URL}/uploads/${item.image}`}
                             alt={item.name ?? ""}
                             className="w-20 h-20 object-cover rounded-md"
                           />
